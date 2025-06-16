@@ -1,29 +1,184 @@
-# Simple Game
+# 🍄 簡單瑪利歐遊戲
 
-This is a simple HTML5 Canvas game where you can control a character using arrow keys.
+一個使用 HTML5 Canvas 和 JavaScript 開發的 2D 平台跳躍遊戲，靈感來自經典的瑪利歐遊戲。
 
-## Setup
+## 遊戲特色
 
-1. Place your game assets in the `assets` folder:
-   - `player.png`: Your player character sprite
-   - `background.png`: The game background image
+- 🎮 **經典平台遊戲玩法**：跳躍、移動、收集道具
+- 🪙 **金幣收集系統**：收集金幣獲得分數
+- 🚧 **障礙物挑戰**：避開紅色障礙物
+- 🏗️ **多層平台設計**：包含地面和空中平台
+- 🎨 **視覺效果**：漸層背景、雲朵裝飾、光澤效果
+- ⚡ **流暢物理引擎**：重力、跳躍、摩擦力模擬
+- 🖼️ **圖片支援**：支援自訂玩家和背景圖片
 
-2. Open `index.html` in a web browser to play the game.
+## 技術架構
 
-## How to Play
+- **前端**：HTML5 Canvas、純 JavaScript
+- **物理引擎**：自製重力和碰撞檢測系統
+- **圖形渲染**：Canvas 2D API
+- **輸入處理**：鍵盤事件監聽
 
-- Use the arrow keys to move the player:
-  - ⬅️ Left Arrow: Move left
-  - ➡️ Right Arrow: Move right
-  - ⬆️ Up Arrow: Move up
-  - ⬇️ Down Arrow: Move down
+## 檔案結構
 
-## Game Features
+```
+homework1/
+├── index.html          # 主要 HTML 文件和樣式
+├── game.js            # 遊戲邏輯和物理引擎
+├── README.md          # 專案說明文件
+└── assets/            # 遊戲資源
+    ├── player.png     # 玩家角色圖片
+    └── background.png # 背景圖片
+```
 
-- Smooth player movement
-- Collision detection with canvas boundaries
-- Support for custom player and background images
+## 遊戲機制
 
-## Note
+### 玩家控制
 
-If you don't have the image assets, the game will show a red rectangle as the player placeholder. 
+- **左右移動**：方向鍵 ← →
+- **跳躍**：空白鍵
+- **摩擦力**：放開按鍵後角色會逐漸停止
+
+### 物理系統
+
+- **重力**：持續向下的重力效果
+- **跳躍力**：向上的初始速度
+- **平台碰撞**：可以站立在平台上
+- **邊界檢測**：防止角色移出畫面
+
+### 遊戲元素
+
+- **金幣**：收集可獲得 100 分
+- **障礙物**：碰撞會扣除 50 分並重置位置
+- **平台**：包含地面和空中平台
+- **裝飾**：雲朵和視覺效果
+
+## 安裝與執行
+
+### 方法一：直接開啟
+
+```bash
+# 直接在瀏覽器中開啟
+open index.html
+```
+
+### 方法二：使用本地伺服器（推薦）
+
+```bash
+# 使用 Python 內建伺服器
+python -m http.server 8000
+
+# 或使用 Node.js http-server
+npx http-server -p 8000
+```
+
+然後在瀏覽器中開啟 `http://localhost:8000`
+
+## 遊戲玩法
+
+1. **開始遊戲**：開啟網頁後遊戲自動開始
+2. **移動角色**：
+   - 使用 ← → 方向鍵左右移動
+   - 按空白鍵跳躍
+3. **收集金幣**：碰觸金色圓形物品獲得分數
+4. **避開障礙**：避免碰觸紅色方塊障礙物
+5. **探索平台**：利用跳躍到達不同高度的平台
+
+## 遊戲設定
+
+### 物理參數（在 game.js 中可調整）
+
+```javascript
+const GRAVITY = 0.8; // 重力強度
+const JUMP_FORCE = -15; // 跳躍力度
+const GROUND_Y = 500; // 地面高度
+```
+
+### 玩家屬性
+
+```javascript
+const player = {
+  speed: 5, // 移動速度
+  width: 50, // 角色寬度
+  height: 50, // 角色高度
+};
+```
+
+## 自訂內容
+
+### 更換角色圖片
+
+1. 準備 PNG 格式的角色圖片
+2. 將圖片命名為 `player.png`
+3. 放置在 `assets/` 資料夾中
+
+### 更換背景圖片
+
+1. 準備適合的背景圖片（建議 800x600）
+2. 將圖片命名為 `background.png`
+3. 放置在 `assets/` 資料夾中
+
+### 修改遊戲元素
+
+在 `game.js` 的 `initGame()` 函數中可以調整：
+
+- 平台位置和大小
+- 金幣數量和位置
+- 障礙物配置
+
+## 瀏覽器相容性
+
+- ✅ Chrome 60+
+- ✅ Firefox 55+
+- ✅ Safari 12+
+- ✅ Edge 79+
+
+## 故障排除
+
+### 常見問題
+
+1. **圖片無法顯示**
+
+   - 確認 `assets/` 資料夾中有對應的圖片檔案
+   - 檢查圖片檔案名稱是否正確
+   - 如果沒有圖片，遊戲會顯示彩色方塊作為替代
+
+2. **遊戲無法執行**
+
+   - 確認瀏覽器支援 HTML5 Canvas
+   - 檢查瀏覽器控制台是否有錯誤訊息
+   - 嘗試使用不同的瀏覽器
+
+3. **按鍵無反應**
+   - 確認網頁已獲得焦點（點擊一下畫面）
+   - 檢查鍵盤是否正常工作
+
+## 開發說明
+
+### 程式碼結構
+
+- `initGame()`：初始化遊戲物件
+- `updatePlayer()`：更新玩家狀態
+- `checkCollisions()`：碰撞檢測
+- `draw()`：渲染遊戲畫面
+- `gameLoop()`：主遊戲循環
+
+### 擴展建議
+
+- 添加音效和背景音樂
+- 實作關卡系統
+- 增加敵人和動畫
+- 添加存檔功能
+- 實作多人遊戲模式
+
+## 授權
+
+此專案僅供學習和個人使用。
+
+## 貢獻
+
+歡迎提交問題報告和功能建議！
+
+---
+
+**提示**：遊戲支援鍵盤操作，建議在桌面環境下遊玩以獲得最佳體驗。
