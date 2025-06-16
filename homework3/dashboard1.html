@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard 1</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/5.3.5/mqtt.min.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Dashboard 1</h1>
+        <div class="controls">
+            <input type="text" id="messageInput" placeholder="Enter message">
+            <button onclick="sendMessage()">Send Message</button>
+        </div>
+        <div class="data-display">
+            <h2>Received Messages</h2>
+            <div id="messageList" class="message-list"></div>
+        </div>
+        <div class="status">
+            <span id="connectionStatus">Disconnected</span>
+        </div>
+    </div>
+    <script src="mqtt-client.js"></script>
+    <script src="dashboard1.js"></script>
+</body>
+</html> 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Care Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Marked library for Markdown support -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Plant Care Assistant</h1>
+        </header>
+        
+        <main>
+            <div class="input-section">
+                <textarea id="userInput" placeholder="Describe your plant or ask for plant care advice..."></textarea>
+                <button id="submitBtn">Get Advice</button>
+            </div>
+            
+            <div class="response-section">
+                <div id="loading" class="hidden">Getting advice...</div>
+                <div id="response" class="markdown-content"></div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

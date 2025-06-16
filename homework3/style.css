@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+}
+
+.dashboard {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #1a73e8;
+    margin-bottom: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 8px 12px;
+    width: 70%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1557b0;
+}
+
+.data-display {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.message-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.message-list div {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.message-list div:last-child {
+    border-bottom: none;
+}
+
+.status {
+    text-align: right;
+    color: #666;
+}
+
+#connectionStatus {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#connectionStatus.connected {
+    background-color: #e6f4ea;
+    color: #137333;
+}
+
+#connectionStatus.disconnected {
+    background-color: #fce8e6;
+    color: #c5221f;
+} 
