@@ -1,26 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Game</title>
+    <title>簡單瑪利歐遊戲</title>
     <style>
         body {
             margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #87CEEB, #98FB98);
+            font-family: 'Arial', sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            background-color: #f0f0f0;
         }
-        canvas {
-            border: 2px solid #333;
-            background-color: white;
+
+        h1 {
+            color: #FF6B35;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        #gameCanvas {
+            border: 4px solid #8B4513;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            background: #87CEEB;
+        }
+
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .controls h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .key {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 8px 12px;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        #score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF6B35;
+            margin-bottom: 10px;
         }
     </style>
 </head>
+
 <body>
+    <h1>🍄 簡單瑪利歐遊戲 🍄</h1>
+    <div id="score">分數: 0</div>
     <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <div class="controls">
+        <h3>遊戲控制</h3>
+        <div>
+            <span class="key">←</span> 向左移動
+            <span class="key">→</span> 向右移動
+            <span class="key">空白鍵</span> 跳躍
+        </div>
+        <p>收集金幣並避開障礙物！</p>
+    </div>
+
     <script src="game.js"></script>
 </body>
-</html> 
+
+</html>
